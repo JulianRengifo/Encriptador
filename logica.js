@@ -4,10 +4,14 @@ var muñeco = document.querySelector(".muñeco");
 var mensaje = document.querySelector(".mensaje"); /* Aparecen al recargar la imagen */
 var mensajeIngresa = document.querySelector(".mensaje-ingresa");
 var resultado = document.querySelector(".texto-resultado");
-var btnCopiar = document.querySelector(".btn-copiar");
+var botonCopiar = document.querySelector(".btn-copiar");
+var txtEntrada = document.querySelector(".txt-area");
+
 
 botonEncriptar.onclick = encriptar; /* Cuando se de click en el boton va a cumplir la funcion declarada */
 botonDesencriptar.onclick = desencriptar;
+botonCopiar.onclick = copiarTexto;
+
 
 function encriptar() {
     ocultarAdelante();
@@ -17,6 +21,12 @@ function encriptar() {
 function desencriptar(){
     ocultarAdelante();
     resultado.textContent = desencriptarTexto(recuperarMensaje());
+}
+
+function copiarTexto(){
+    
+    navigator.clipboard.writeText(resultado.innerHTML);
+
 }
 
 function recuperarMensaje() {
@@ -102,3 +112,5 @@ function desencriptarTexto(mensaje){
 
     return textoFInal;
 }
+
+

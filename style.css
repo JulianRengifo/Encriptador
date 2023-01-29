@@ -1,5 +1,8 @@
 body{
-    background-image: linear-gradient(to right top, #14e0eb, #29e3e0, #40e5d3, #56e6c6, #6be7b9, #79eaaf, #88eca3, #98ee98, #a9f38b, #bdf67c, #d3f96e, #ebfb5f);
+    background-image: url('/imagenes/circuit-board.svg');
+    background-color: rgba(48, 165, 191, .4); /* agregues una «a» al prefijo rgb() y que agregues cuatro valores dentro del paréntesis. Los primeros tres números representan la intensidad del respectivo color primario 
+    («r» para rojo, «g» para verde y «b» para azul) como un número entero en la escala del 0 al 255. El cuarto valor, correspondiente a «a», va del 0 al 1 y sirve para establecer la transparencia del color. */
+    /*background-image: linear-gradient(to right top, #14e0eb, #29e3e0, #40e5d3, #56e6c6, #6be7b9, #79eaaf, #88eca3, #98ee98, #a9f38b, #bdf67c, #d3f96e, #ebfb5f);*/
 }
 
 header{
@@ -21,7 +24,6 @@ main{
 section{
     width: 40%;
     height: 100%;
-    /*background-color: aqua;*/
 }
 
 .txt-mensaje{
@@ -39,14 +41,18 @@ section{
     resize: none;     /* resize establece si un elemento es redimensionable, y none no ofrece ingun metodo controlable para que el usuario cambio su tamaño */
     font-size: 25px;  /* Tamaño de la letra */
     outline: none;
+    background-color: rgba(24, 83, 89, .8);
+    color: #F2BE22;
 }
+
+::placeholder{color: #F2BE22;}
 
 .botones{
     text-align: center;
 }
 
 .btn-encriptar, .btn-desencriptar{
-    background-color: transparent;
+    background-color: #0B2B40;
     color: #00a84f;
     width: 25%;
     height: 60px;
@@ -58,18 +64,20 @@ section{
     cursor: pointer;
 }
 
-.btn-encriptar:hover {
+.btn-encriptar:hover, .btn-desencriptar:hover, .btn-copiar:hover {
     color:white;
     background-image: linear-gradient(to right top, #14e0eb, #29e3e0, #40e5d3, #56e6c6, #6be7b9, #79eaaf, #88eca3, #98ee98, #a9f38b, #bdf67c, #d3f96e, #ebfb5f);
 }
 
 .txt-encriptado{
-    background-color: white;
+    height: 99%;
     width: 20%;
     border-radius: 20px;
     margin-right: 20px;     /* Separa el contenido hacia la izquierda */
     box-sizing: border-box;
     overflow: hidden;       /* El contenido se oculta, en este caso se oculta detras de la imagen */
+    background-color: rgba(24, 83, 89, .9);
+    color: #F2BE22;
 }
 
 .muñeco{
@@ -127,18 +135,104 @@ section{
     border-radius: 20px;
     font-size: 1.7em;
     font-family: tahoma;
+    background-color: #0B2B40;
+    color: #00a84f;
 }
 
 
 footer{
     width: 100%;
-    height: 60px;
+    height: 60%;
     text-align: center;
+    background-color: rgba(23, 84, 89, .9);
+}
+
+.redes{
+    display: flex;
+    justify-content: center;
+}
+
+.linkedin{
+    width: 58px;
+    height: 58px;
+    margin-right: 30px;  
+}
+
+.github{
+    width: 58px;
+    height: 58px;   
 }
 
 .ocultar{
     display: none;
 }
 
+/* ----------------- Responsive ------------------- */
 
+@media only screen and (max-width: 768px) {
+    
+    main{
+        flex-direction: column;
+        padding: 0 1.5em;
+        height: auto;
+    }
 
+    .txt-mensaje{
+        display: flex;
+        gap: 1em;
+        width: 100%;
+        flex-direction: column;
+        margin:0 auto;
+        padding-top: 2em;
+    }
+
+    .txt-area{
+        width: 100%;
+        height: 14em;
+        font-size: 1.8em;
+    }
+
+    .botones{
+        flex-direction: column;
+        margin-top: -3em;
+    }
+
+    .btn-encriptar, .btn-desencriptar{
+        width: 45%;
+        height: 45%;
+        font-size: 1.2em;
+    }
+
+    .txt-encriptado{
+        width: 100%;
+        flex-direction: column;
+        margin-top: 4.5em;
+        margin-bottom: 2em;
+    }
+
+    h3, .texto-resultado{
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+        font-size: 1.8em;
+    }
+
+    .muñeco{
+        display: none;
+    }
+
+    .mensaje, .mensaje-ingresa{
+        font-size: 0.em;
+    }
+
+    .btn-copiar{
+        width: 90%;
+        margin-top: -3.4em;
+        font-size: 1.2em;
+    }
+
+    footer{
+        width: 100%;
+        margin-top: 11.8%;
+    }
+}
